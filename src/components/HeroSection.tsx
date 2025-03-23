@@ -4,21 +4,22 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react"; // Pastikan impor ini
+import image from "../image";
 
 // Data Slide - Fokus ke Petani Kopi
 const slides = [
     {
-        image: "/src/assets/hero1.jpg",
+        image: image.hero1,
         title: "Meningkatkan Produktivitas Kopi",
         subtitle: "Gunakan teknik modern & pupuk unggulan untuk hasil panen terbaik.",
     },
     {
-        image: "/src/assets/hero2.jpg",
+        image: image.hero2,
         title: "Kiat Sukses Petani Kopi",
         subtitle: "Pelajari cara mengatasi hama, meningkatkan kualitas biji kopi, dan strategi pemasaran.",
     },
     {
-        image: "/src/assets/hero3.jpg",
+        image: image.hero3,
         title: "Rekomendasi Produk Unggulan",
         subtitle: "Temukan pupuk organik, alat pertanian, dan teknologi terbaru untuk petani kopi.",
     },
