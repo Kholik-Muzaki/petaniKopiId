@@ -13,7 +13,6 @@ const AiChat = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        // Pesan Pembuka dari AI
         setMessages([
             { role: "ai", content: "Halo! Saya siap membantu menjawab pertanyaan tentang kopi. Silakan tanyakan sesuatu!" }
         ]);
@@ -38,6 +37,12 @@ const AiChat = () => {
         }
     };
 
+    const formatResponse = (text: string) => {
+        return text
+            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            .replace(/\n/g, "<br>");
+    };
+
     return (
         <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
             {/* Header */}
@@ -51,9 +56,9 @@ const AiChat = () => {
                 {messages.map((msg, index) => (
                     <div key={index} className={`flex items-start my-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                         {msg.role === "ai" && <FaRobot className="text-green-500 text-2xl mr-2" />}
-                        <div className={`max-w-[70%] p-4 rounded-lg shadow-md ${msg.role === "user" ? "bg-green-500 text-white" : "bg-white text-gray-800 border"}`}>
-                            <p>{msg.content}</p>
-                        </div>
+                        <div className={`max-w-[70%] p-4 rounded-lg shadow-md ${msg.role === "user" ? "bg-green-500 text-white" : "bg-white text-gray-800 border"}`}
+                            dangerouslySetInnerHTML={{ __html: formatResponse(msg.content) }}
+                        />
                         {msg.role === "user" && <FaUser className="text-gray-500 text-2xl ml-2" />}
                     </div>
                 ))}
@@ -73,7 +78,7 @@ const AiChat = () => {
                     type="text"
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
-                    placeholder="Ketik pertanyaan tentang kopi..."
+                    placeholder="💬 Ketik pertanyaan tentang kopi..."
                     className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
                 <button type="submit" className="ml-3 bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition">
