@@ -2,6 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, EffectCoverflow } from "swiper/modules";
 import image from "../image";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { useEffect } from "react";
+import * as Aos from "aos";
 
 const produkRekomendasi = [
     {
@@ -27,8 +29,15 @@ const produkRekomendasi = [
 ];
 
 const RekomendasiProduk = () => {
+    useEffect(() => {
+            Aos.init({
+                duration: 3000,
+                once: false,
+            });
+        }, []);
     return (
-        <section className="py-16 px-5 lg:px-20 bg-gray-50">
+        <div data-aos="fade-up">
+            <section className="py-16 px-5 lg:px-20 bg-gray-50">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Bagian Kiri - Deskripsi */}
@@ -112,6 +121,8 @@ const RekomendasiProduk = () => {
 
             </div>
         </section>
+        </div>
+        
     );
 };
 

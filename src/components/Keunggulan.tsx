@@ -1,6 +1,14 @@
+import * as Aos from "aos";
+import { useEffect } from "react";
 import { FaSeedling, FaBookOpen, FaComments, FaShoppingCart } from "react-icons/fa";
 
 const Keunggulan = () => {
+    useEffect(() => {
+        Aos.init({
+            duration: 3000,
+            once: false,
+        });
+    }, []);
     const features = [
         {
             icon: <FaSeedling className="text-green-500 text-4xl mb-4" />,
@@ -25,24 +33,27 @@ const Keunggulan = () => {
     ];
 
     return (
-        <section className="py-16 px-5 lg:px-20 bg-white text-gray-800">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">Keunggulan <span className="text-green-500">PetaniKopi.id</span></h2>
-                <p className="mt-3 text-gray-600">Kenapa ribuan petani kopi bergabung dengan kami?</p>
-            </div>
+        <div data-aos="fade-up">
+            <section className="py-16 px-5 lg:px-20 bg-white text-gray-800">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">Keunggulan <span className="text-green-500">PetaniKopi.id</span></h2>
+                    <p className="mt-3 text-gray-600">Kenapa ribuan petani kopi bergabung dengan kami?</p>
+                </div>
 
-            {/* Grid Keunggulan */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {features.map((feature, index) => (
-                    <div key={index} className="flex flex-col items-center bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                        <div className="icon">{feature.icon}</div>
-                        <h3 className="text-xl font-semibold mt-2">{feature.title}</h3>
-                        <p className="text-gray-600 mt-2 text-center">{feature.description}</p>
-                    </div>
+                {/* Grid Keunggulan */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {features.map((feature, index) => (
+                        <div key={index} className="flex flex-col items-center bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div className="icon">{feature.icon}</div>
+                            <h3 className="text-xl font-semibold mt-2">{feature.title}</h3>
+                            <p className="text-gray-600 mt-2 text-center">{feature.description}</p>
+                        </div>
 
-                ))}
-            </div>
-        </section>
+                    ))}
+                </div>
+            </section>
+        </div>
+
     );
 };
 
