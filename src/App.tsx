@@ -5,6 +5,7 @@ import TanyaAI from "./pages/TanyaAi/TanyaAi";
 import Articles from "./pages/Articles/Articles";
 import ArticleDetail from "./pages/Articles/ArticleDetail";
 import NotFound from "./pages/NotFound/NotFound";
+import VideoPage from "./pages/Video/VideoPage";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/kontak" element={<Kontak />} />
         <Route path="/artikel" element={<Articles />} />
         <Route path="/artikel/:id" element={<ArticleDetail />} />
+        <Route path="/video" element={<VideoPage />} />
         {/* notfound */}
         <Route path="*" element={<NotFound />} />
       </Routes>

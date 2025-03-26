@@ -83,3 +83,32 @@ export const articleData: Article[] = [
         `,
     }
 ];
+
+export interface Video {
+    id: number;
+    title: string;
+    link: string;  // YouTube embed link
+    category: string;
+}
+
+export const videoData: Video[] = [
+    // 🌱 Budidaya Kopi
+    { id: 1, title: "Panduan Budidaya Kopi untuk Pemula", link: "https://www.youtube.com/embed/YtZkDMLR6nA", category: "Budidaya Kopi" },
+    { id: 2, title: "Cara Memilih Bibit Kopi Berkualitas", link: "https://www.youtube.com/embed/KF7C0cXyGBs", category: "Budidaya Kopi" },
+
+    // ☀ Perawatan Kebun Kopi
+    { id: 3, title: "Teknik Pemangkasan Kopi Agar Hasil Melimpah", link: "https://www.youtube.com/embed/RH_6NCCTa2w", category: "Perawatan Kopi" },
+    { id: 4, title: "Cara Mengatasi Hama dan Penyakit pada Kopi", link: "https://www.youtube.com/embed/XWmjN5nUdYg", category: "Perawatan Kopi" },
+
+    // 🍒 Panen dan Pascapanen
+    { id: 5, title: "Cara Memanen Kopi dengan Benar", link: "https://www.youtube.com/embed/9GZTJmXjMAw", category: "Panen Kopi" },
+    { id: 6, title: "Proses Pascapanen Kopi: Honey, Natural, Washed", link: "https://www.youtube.com/embed/BH39t4E8IAg", category: "Panen Kopi" },
+
+    // 🌍 Kopi dan Lingkungan
+    { id: 7, title: "Dampak Perkebunan Kopi terhadap Lingkungan", link: "https://www.youtube.com/embed/2YYpLgXkNLM", category: "Kopi & Lingkungan" },
+    { id: 8, title: "Cara Bertani Kopi Ramah Lingkungan", link: "https://www.youtube.com/embed/WFuL8EMjTjI", category: "Kopi & Lingkungan" },
+
+    // 💰 Bisnis Kopi
+    { id: 9, title: "Cara Menjual Kopi Hasil Panen ke Pasar", link: "https://www.youtube.com/embed/0p7kFdmJtXs", category: "Bisnis Kopi" },
+    { id: 10, title: "Memahami Harga Kopi di Pasaran", link: "https://www.youtube.com/embed/xt5FjsLfapE", category: "Bisnis Kopi" }
+];
