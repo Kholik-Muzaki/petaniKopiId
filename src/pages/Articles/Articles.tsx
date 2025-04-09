@@ -1,11 +1,21 @@
-import React from "react";
-import ArticleCard from "../../components/ArticleCard";
-import Footer from "../../components/Footer";
+import { lazy, Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { articleData, Article } from "../../data/data";
 import image from "../../image";
 
-const Articles: React.FC = () => {
+// Lazy loading untuk komponen berat
+const ArticleCard = lazy(() => import("../../components/ArticleCard"));
+
+const Articles = () => {
+    const { pathname } = useLocation();
+
+    // Scroll otomatis ke atas saat halaman berubah
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <>
             <Navbar />
@@ -31,11 +41,13 @@ const Articles: React.FC = () => {
                     {articleData.length === 0 ? (
                         <p className="text-center text-gray-600">Belum ada artikel tersedia.</p>
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {articleData.map((article: Article) => (
-                                <ArticleCard key={article.id} article={article} />
-                            ))}
-                        </div>
+                        <Suspense fallback={<p className="text-center">Loading...</p>}>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {articleData.map((article: Article) => (
+                                    <ArticleCard key={article.id} article={article} />
+                                ))}
+                            </div>
+                        </Suspense>
                     )}
                 </div>
             </div>

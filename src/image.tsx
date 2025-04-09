@@ -13,6 +13,7 @@ import maslatif from './assets/maslatif.jpg';
 import masiwan from './assets/masiwan.jpg';
 import kopicantik from './assets/kopicantik.jpg';
 import hero from './assets/hero.jpg';
+import kholik from './assets/kholik.png';
 
 const image = {
     logo,
@@ -29,7 +30,8 @@ const image = {
     maslatif,
     masiwan,
     kopicantik,
-    hero
+    hero,
+    kholik
 }
 
 export default image;

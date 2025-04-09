@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import image from "../image"; // Sesuaikan path gambar logo
-
+import { Link, useNavigate } from "react-router-dom";
+import image from "../image";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -32,11 +32,12 @@ const Navbar = () => {
 
                     <li><Link to="/tanya-ai" className="hover:text-green-500 transition">Tanya AI</Link></li>
                     <li><Link to="/kontak" className="hover:text-green-500 transition">Kontak</Link></li>
+                    <li><Link to="/tentang-kami" className="hover:text-green-500 transition">Tentang Kami</Link></li>
                 </ul>
 
                 {/* Tombol Sign In & Register (Desktop) */}
                 <div className="hidden lg:flex space-x-4">
-                    <button className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition">Sign In</button>
+                    <button className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition" onClick={() => navigate('/login')}>Sign In</button>
                     <button className="border border-green-500 px-6 py-2 rounded-md hover:bg-green-600 hover:text-white transition">Register</button>
                 </div>
 
@@ -74,10 +75,11 @@ const Navbar = () => {
 
                     <li><Link to="/tanya-ai" onClick={() => setIsOpen(false)} className="hover:text-green-500 transition">Tanya AI</Link></li>
                     <li><Link to="/kontak" onClick={() => setIsOpen(false)} className="hover:text-green-500 transition">Kontak</Link></li>
+                    <li><Link to="/tentang-kami" onClick={() => setIsOpen(false)} className="hover:text-green-500 transition">Tentang Kami</Link></li>
                 </ul>
 
                 {/* Tombol Sign In & Register (Mobile) */}
-                <button className="mt-6 bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition">Sign In</button>
+                <button className="mt-6 bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition" onClick={() => navigate('/login')}>Sign In</button>
                 <button className="mt-3 border border-green-500 px-6 py-2 rounded-md hover:bg-green-600 hover:text-white transition">Register</button>
             </div>
 
