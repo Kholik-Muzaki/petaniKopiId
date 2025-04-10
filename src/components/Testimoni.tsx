@@ -3,6 +3,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import image from "../image";
 import { useEffect } from "react";
 import * as Aos from "aos";
+
 const testimoniPetani = [
     {
         image: image.hamid,
@@ -45,13 +46,22 @@ const Testimoni = () => {
                     spaceBetween={30}
                     slidesPerView={1}
                     autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    pagination={{ clickable: true }}
+                    pagination={{
+                        clickable: true,
+                        renderBullet: (index, className) => (
+                            `<span class="${className} text-green-500"></span>`
+                        ),
+                    }}
                     className="w-full max-w-4xl mx-auto"
                 >
                     {testimoniPetani.map((petani, index) => (
                         <SwiperSlide key={index}>
-                            <div className="flex flex-col items-center bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                                <img src={petani.image} alt={petani.name} className="w-24 h-24 rounded-full object-cover border-4 border-green-500 shadow-md" />
+                            <div className="flex flex-col items-center bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105">
+                                <img
+                                    src={petani.image}
+                                    alt={petani.name}
+                                    className="w-24 h-24 rounded-full object-cover border-4 border-green-500 shadow-md transition-all duration-300 ease-in-out transform hover:scale-110"
+                                />
                                 <h3 className="text-xl font-semibold mt-4">{petani.name}</h3>
                                 <p className="text-sm text-gray-600">{petani.location}</p>
                                 <p className="mt-4 text-gray-700 text-center italic">“{petani.quote}”</p>
@@ -61,7 +71,6 @@ const Testimoni = () => {
                 </Swiper>
             </section>
         </div>
-
     );
 };
 

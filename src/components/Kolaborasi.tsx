@@ -4,6 +4,7 @@ import "swiper/css";
 import image from "../image";
 import { useEffect } from "react";
 import * as Aos from "aos";
+
 const mitraList = [
     { logo: image.logo2, name: "AgroTech Indonesia" },
     { logo: image.logo2, name: "GreenFarm Solutions" },
@@ -21,6 +22,7 @@ const Kolaborasi = () => {
             once: false,
         });
     }, []);
+
     return (
         <div data-aos="fade-up">
             <section className="py-16 px-5 lg:px-20 bg-gray-50 text-gray-800">
@@ -37,22 +39,20 @@ const Kolaborasi = () => {
 
                         {/* List Keuntungan */}
                         <div className="mt-6 space-y-6">
-                            {[
-                                {
-                                    title: "Dukungan Riset & Inovasi",
-                                    desc: "Berkolaborasi dalam riset pertanian dan pengembangan teknologi kopi.",
-                                },
-                                {
-                                    title: "Jangkauan Lebih Luas",
-                                    desc: "Mitra kami mendapatkan akses ke komunitas petani kopi di seluruh Indonesia.",
-                                },
-                                {
-                                    title: "Branding & Promosi",
-                                    desc: "Kesempatan mempromosikan produk dan layanan yang mendukung petani kopi.",
-                                },
-                            ].map((item, index) => (
+                            {[{
+                                title: "Dukungan Riset & Inovasi",
+                                desc: "Berkolaborasi dalam riset pertanian dan pengembangan teknologi kopi.",
+                            },
+                            {
+                                title: "Jangkauan Lebih Luas",
+                                desc: "Mitra kami mendapatkan akses ke komunitas petani kopi di seluruh Indonesia.",
+                            },
+                            {
+                                title: "Branding & Promosi",
+                                desc: "Kesempatan mempromosikan produk dan layanan yang mendukung petani kopi.",
+                            }].map((item, index) => (
                                 <div key={index} className="flex items-start space-x-4">
-                                    <span className="text-green-500 text-3xl">✔</span>
+                                    <span className="text-green-500 text-3xl">✅</span>
                                     <div>
                                         <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
                                         <p className="text-gray-600">{item.desc}</p>
@@ -84,11 +84,16 @@ const Kolaborasi = () => {
                         {mitraList.map((mitra, index) => (
                             <SwiperSlide key={index}>
                                 <div className="flex justify-center items-center">
-                                    <img
-                                        src={mitra.logo}
-                                        alt={mitra.name}
-                                        className="h-20 opacity-80 hover:opacity-100 transition duration-300 transform hover:scale-110"
-                                    />
+                                    <div className="flex flex-col items-center bg-white shadow-xl hover:shadow-2xl rounded-lg transition-transform transform hover:scale-105 p-6">
+                                        <div className="w-24 h-24 bg-gray-200 flex justify-center items-center rounded-full mb-4 overflow-hidden shadow-lg hover:shadow-2xl transition-transform duration-300">
+                                            <img
+                                                src={mitra.logo}
+                                                alt={mitra.name}
+                                                className="object-contain w-full h-full"
+                                            />
+                                        </div>
+                                        <p className="text-gray-800 font-semibold text-center">{mitra.name}</p>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         ))}
@@ -99,13 +104,12 @@ const Kolaborasi = () => {
                 <div className="text-center mt-12">
                     <h3 className="text-2xl font-bold text-gray-900">Ingin Bergabung Sebagai Mitra?</h3>
                     <p className="text-gray-600 mt-2">Dukung petani kopi Indonesia dengan kolaborasi yang bermanfaat.</p>
-                    <button className="mt-6 bg-green-500 text-white px-6 py-3 rounded-md shadow-lg hover:bg-green-600 hover:shadow-xl transition duration-300">
+                    <button className="mt-6 bg-green-500 text-white px-6 py-3 rounded-md shadow-lg hover:bg-green-600 hover:shadow-xl transition duration-300 transform hover:scale-105">
                         Hubungi Kami
                     </button>
                 </div>
             </section>
         </div>
-
     );
 };
 

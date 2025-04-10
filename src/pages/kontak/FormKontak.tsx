@@ -96,7 +96,7 @@ const FormKontak = () => {
                 <h3 className="text-2xl font-semibold text-center mb-6">Pertanyaan Umum</h3>
                 <div className="space-y-4 max-w-3xl mx-auto">
                     {faqs.map((faq, index) => (
-                        <div key={index} className="bg-white p-4 rounded-lg shadow-md cursor-pointer transition-all" onClick={() => setFaqOpen(faqOpen === index ? null : index)}>
+                        <div key={index} className="bg-white p-4 rounded-lg shadow-md cursor-pointer transition-all duration-300 hover:bg-gray-50" onClick={() => setFaqOpen(faqOpen === index ? null : index)}>
                             <div className="flex justify-between items-center">
                                 <h4 className="font-semibold">{faq.question}</h4>
                                 <FaChevronDown className={`transition-transform duration-300 ${faqOpen === index ? "rotate-180" : ""}`} />

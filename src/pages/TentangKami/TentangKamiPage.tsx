@@ -19,12 +19,13 @@ const TentangKamiPage = () => {
         <>
             <Navbar />
 
-            {/* Hero Section */}
-            <section className="py-20 px-5 lg:px-20 bg-gray-50 text-center" data-aos="fade-up">
-                <h1 className="text-4xl font-bold text-gray-800 mb-4">
-                    Tentang <span className="text-green-500">PetaniKopi</span>.id
+            {/* Hero Section with Background Image */}
+            <section className="relative py-32 px-5 lg:px-20 bg-gradient-to-r from-green-500 to-green-700 text-center text-white" data-aos="fade-up">
+                <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: 'url("path-to-your-image.jpg")' }}></div>
+                <h1 className="text-4xl lg:text-5xl font-extrabold mb-4">
+                    Tentang <span className="text-yellow-300">PetaniKopi</span>.id
                 </h1>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-lg lg:text-xl max-w-3xl mx-auto">
                     Platform digital yang membantu petani kopi Indonesia bertumbuh lewat teknologi, komunitas, dan edukasi.
                 </p>
             </section>
@@ -34,6 +35,7 @@ const TentangKamiPage = () => {
 
             {/* Our Team Section */}
             <OurTeam />
+
             {/* CTA Akhir */}
             <section className="py-20 px-5 lg:px-20 bg-green-600 text-white text-center" data-aos="fade-up">
                 <h2 className="text-3xl font-bold mb-4">Mari Bangun Masa Depan Petani Kopi Indonesia</h2>
