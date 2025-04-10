@@ -48,7 +48,7 @@ const Testimoni = () => {
                     autoplay={{ delay: 5000, disableOnInteraction: false }}
                     pagination={{
                         clickable: true,
-                        renderBullet: (index, className) => (
+                        renderBullet: (className) => (
                             `<span class="${className} text-green-500"></span>`
                         ),
                     }}
